@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using PracticeORM.Data;
+using PracticeORM.Interfaces;
+using PracticeORM.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddDbContext<ORMContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IDriverService, DriverService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
