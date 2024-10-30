@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace PracticeORM.DBOs
+namespace PracticeORM.DTOs
 {
-    public class DriverDBO
+    public class DriverDTO
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
